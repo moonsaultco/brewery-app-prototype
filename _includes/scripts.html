@@ -1,0 +1,64 @@
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+	
+	$( document ).ready(function() {
+	
+		// click button to show search modal
+		$( '#show_search' ).click(function(e) {
+		  $('#search_modal').removeClass('off');
+		  e.preventDefault();
+		});
+		
+		//click close x in modal
+		$( '#close_modal' ).click(function(e) {
+		  $('#search_modal').addClass('off');
+		  e.preventDefault();
+		});
+		
+		// click button in search modal
+		$( '#search_modal button' ).click(function(e) {
+		  window.location.href = 'results.html';
+		  e.preventDefault();
+		});
+		
+		// click refinement
+		$( '#refinement a' ).click(function(e) {
+		  $('#refinement a').toggleClass('active');
+		  $('.main .listings').removeClass('fade-out');
+		  $('.main .listings').removeClass('fade-in');
+		  
+		  
+		  if ($('#refinement a').hasClass('active')){
+			  $('#refinement span').text('18 Results');
+		  } else {
+			  $('#refinement span').text('22 Results');
+		  }
+		  
+		  $('.main .listings').addClass('fade-out');
+		  setTimeout(function(){  $('.main .listings').addClass('fade-in');  }, 350);
+		  
+		  e.preventDefault();
+		});
+		
+		// click on a result listing
+		$( '.results .listing' ).click(function(e) {
+			//clean-up / only one active at a time
+			$('.listing.active').removeClass('active');
+			$('.map-pin.active').removeClass('active');
+			
+			$(this).toggleClass('active');
+			
+			//figure out which map pin to enlarge
+			var thisIndex = $( "li" ).index( $(this ));
+			var pinClass = '.pin' + thisIndex;
+			$(pinClass).addClass('active');
+			
+			
+			console.log(thisIndex);
+			console.log(pinClass);
+		});
+		
+	
+	});
+	
+</script>

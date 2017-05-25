@@ -1,0 +1,79 @@
+---
+layout: default
+company-name: Spangalang Brewery
+meta: Denver Craft Beer Pub. Spangalang Brewery is a Denver Microbrew pub in Historic Five Points. Denver Beer Bars.
+street: 2736 Welton St.
+line2: Denver, CO 80205
+phone: (303) 297-1276
+phone-url: 303-297-1276
+website: spangalangbrewery.com
+website-url: http://spangalangbrewery.com
+facebook: spangalangbrewing
+facebook-url: https://www.facebook.com/spangalangbrewing/
+instagram-url: https://instagram.com/spangalangbrewery
+twitter: '@Spangalangbeer'
+twitter-url: https://twitter.com/@Spangalangbeer
+fourquare-url: https://foursquare.com/v/spangalang-brewery/55271451498e2f11fe19bb60
+---
+
+<div id="map" class="details">  
+  <div class="map-pin center active"></div>
+</div>
+<div  class="details header">
+  <span class="">{{ page.company-name }}</span>
+</div>
+<div class="details main scroll">
+  <div class="pad">
+    
+  {% if page.meta %}
+    <p>{{ page.meta }}</p>
+  {% endif %}
+  
+  <hr>
+  
+  <a class="icon directions dark" href="http://maps.apple.com/?&daddr={{page.street | uri_escape}},{{page.line2 | uri_escape}}">
+      {{page.street}}, 
+      {{page.line2}}
+  </a>
+  {% if page.phone %}
+  <a class="icon dark phone" href="tel:{{page.phone-url}}">{{page.phone}}</a>
+  {% endif %}
+  {% if page.website %}
+  <a class="icon dark website" href="{{page.website-url}}">{{page.website}}</a>
+  {% endif %}
+  
+  <hr>
+  
+  {% if page.fourquare-url %}
+  <a class="icon dark foursquare" href="{{page.fourquare-url}}">Check hours on Foursquare</a>
+  {% endif %}
+  {% if page.instagram-url %}
+  <a class="icon dark instagram" href="{{page.instagram-url}}">Photos on Instagram</a>
+  {% endif %}
+  {% if page.facebook-url %}
+  <a class="icon dark facebook" href="{{page.facebook-url}}">{{page.facebook}} on Facebook</a>
+  {% endif %}
+  {% if page.twitter-url %}
+  <a class="icon dark twitter" href="{{page.twitter-url}}">{{page.twitter}} on Twittter</a>
+  {% endif %}
+  
+  
+  </div>
+  
+  {% include footer.html %}
+  
+</div>
+  
+   <a href="" id="show_search" class="button shadow fixed">
+     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+     <svg width="15px" height="14px" viewBox="0 0 15 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+       <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+       <g id="search-wrap" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+         <g id="search-icon" transform="translate(-669.000000, -494.000000)" fill="#FFFFFF">
+           <path d="M675.041205,503.332556 C672.950712,503.332556 671.249854,501.631697 671.249854,499.541205 C671.249854,497.451296 672.950712,495.749854 675.041205,495.749854 C677.130531,495.749854 678.832556,497.451296 678.832556,499.541205 C678.832556,501.631697 677.130531,503.332556 675.041205,503.332556 M683.158195,506.008666 L679.808391,502.658278 C679.769894,502.619782 679.726731,502.590034 679.685318,502.557954 C680.251104,501.689443 680.58241,500.655279 680.58241,499.541205 C680.58241,496.48071 678.102283,494 675.041205,494 C671.981293,494 669.5,496.48071 669.5,499.541205 C669.5,502.602283 671.981293,505.08241 675.041205,505.08241 C676.154112,505.08241 677.190026,504.751104 678.05912,504.185318 C678.091201,504.227314 678.120365,504.269311 678.158278,504.307808 L681.506916,507.658195 C681.736147,507.886259 682.034789,508 682.332264,508 C682.630322,508 682.928964,507.886259 683.158195,507.658778 C683.612574,507.20265 683.612574,506.464211 683.158195,506.008666" id="search"></path>
+         </g>
+       </g>
+     </svg>
+   </a>
+  
+  <a id="back_button" href="javascript:history.back()">back</a>

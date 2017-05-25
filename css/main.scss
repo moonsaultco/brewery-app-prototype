@@ -1,0 +1,498 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import 'normalize.scss';
+
+$dark-gray: #333;
+$lite-gray: #CACACA;
+$background: #F0F0F0;
+$primary: #B82626;
+
+$contrast-font: 'Iowan Old Style', Palatino, Georgia, 'Times New Roman', Times, serif;
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: $dark-gray;
+	background-color: $background;
+	min-height: 100vh;
+	position: relative;
+}
+
+h1 {
+	font-size: 1.5em;	
+}
+
+hr {
+	border: 0;
+	border-bottom: 1px $lite-gray solid;
+	margin: 1em 0;
+}
+
+a {
+	color: $primary;
+	text-decoration: none;
+	&:visited {
+	   color: $primary;
+	}
+	&:hover {
+		//text-decoration: underline;
+		//put this media larger than mobile section
+	}
+	&.button {
+		color: white;
+	}
+}
+
+button {
+	-webkit-appearance: none;
+	border: none;
+}
+
+.button, button {
+	background-color: $dark-gray;
+	color: white;
+	border-radius: 20px;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	padding: .4em 1em;
+	&.primary {
+		background-color: $primary;
+	}
+	&.large {
+		font-size: percentage(18/16);
+		padding: .5em 1em;
+	}
+	&.attached {
+		border-radius: 0 20px 20px 0;
+		padding-left: .7em; 
+	}
+	&.shadow {
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.fade-out {
+	opacity: 0;
+	transition: all .25s linear;
+}
+
+.fade-in {
+	opacity: 1;
+	transition: all .25s linear;
+}
+
+
+#search_modal {
+	position: absolute;
+	top: 20px;
+	left: 5%;
+	right: 5%;
+	background-color: $background;
+	border: 1px $dark-gray solid;
+	z-index: 5;
+	padding: 1em;
+	transition: all .5s ease-in-out;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+	label {
+		display: block;
+		font-weight: bold;
+		margin-bottom: .5em;
+	}
+	input, button {
+		height: 31px;
+	}
+	input {
+		border: 1px $dark-gray solid;
+		width: 83%;
+		border-radius: 4px 0 0 4px;
+		padding: 0 .5em;
+		-webkit-appearance: none;
+	}
+	button {
+		margin-left: -5px;
+		vertical-align: top;
+		svg {
+			position: relative;
+			top: 1px;
+		}
+	}
+	#close_modal {
+		font-size: 200%;
+		color: $dark-gray;
+		position: absolute;
+		top: -2px;
+		right: 7px;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	p {
+		margin-bottom: 0;
+		a {
+			font-weight: bold;
+		}
+	}
+	&.off {
+		top: -200px;
+	}
+}
+
+
+// HOME PAGE ===================================================================
+
+.base-padding {
+	padding: 2em 10px;
+}
+
+
+.logo {
+	//height: 50vh;
+	background-color: $dark-gray;
+	color: white;
+	position: relative;
+	text-align: center;
+	@extend .base-padding;
+	img {
+		width: 30%;
+		max-width: 120px;
+		display: block;
+		margin: 0 auto;
+	}
+	.presents {
+		font-family: $contrast-font;
+		font-style: italic;
+		margin: 1.5em 0;
+	}
+	h1 {
+		max-width: 15em;
+		margin: .67em auto;
+	}
+}
+.actions {
+	@extend .base-padding;
+	.button {
+		display: block;
+		width: 70%;
+		max-width: 20em;
+		margin: 1em auto;
+	}
+}
+
+
+// RESULTS & DETAILS PAGE ======================================================
+
+// html, body {
+//     height: 100%;
+// }
+
+#map {
+	//min-height: 170px;
+	height: 33vh;
+	//max-height: 400px;
+	//background-color: red;
+	background-image: url('../img/large-map-default.jpg');
+	background-position: 40% 40%;
+	background-repeat: no-repeat;
+	position: relative;
+	
+	position: fixed;
+	width: 100%;
+	
+}
+
+.header {
+	background-color: $dark-gray;
+	color: white;
+	display: flex;
+	align-items: center;
+	padding: 5px 10px;
+	height: 35px;
+	position: relative;
+	z-index: 10;
+	box-shadow: 0 5px 5px $background;
+	
+	position: fixed;
+	width: 100%;
+	top: 33vh;
+	height: 7vh;
+}
+
+.main.scroll {
+	//height: 60vh;
+	overflow: auto;
+	//margin-top: -35px;
+	//padding-top: 35px;
+	//padding-bottom: 50px;
+	position: relative;
+	width: 100%;
+	backface-visibility: hidden;
+	will-change: overflow;
+	
+	position: fixed;
+	width: 100%;
+	top: 40vh;
+	bottom: 0;
+}
+
+#show_search.fixed {
+	position: fixed;
+	bottom: 10px;
+	left: 46%;
+	z-index: 5;
+}
+
+.map-pin {
+	width: 19px;
+	height: 19px;
+	background-image: url('../img/map-pin.svg');
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 64%;
+	left:36%;
+	transition: all .5s ease-in;
+	&.active {
+		// width:  19px * 1.7;
+		// height: 19px * 1.7;
+		// background-size: cover;
+		transform: scale(1.6) rotate(360deg);
+	}
+	&.center {
+		top:  45%;
+		left: 45%;
+	}
+}
+
+.your-location {
+	width: 15px;
+	height: 15px;
+	background-image: url('../img/map-pin-your-location.svg');
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 49%;
+	left:45%;
+	transform: scale(1.3);
+}
+
+.pin1{
+	top:  23%;
+	left: 57%;
+}
+.pin2{
+	top:  33%;
+	left: 27%;
+}
+.pin3{
+	top:  40%;
+	left: 54%;
+}
+.pin4{
+	top:  66%;
+	left: 5%;
+}
+.pin5{
+	top:  77%;
+	left: 22%;
+}
+.pin6{
+	top:  86%;
+	left: 87%;
+}
+.pin7{
+	top:  4%;
+	left: 37%;
+}
+.pin8{
+	top:  35%;
+	left: 77%;
+}
+.pin9{
+	top:  5%;
+	left: 82%;
+}
+
+// RESULTS PAGE ================================================================
+
+.results.header{
+	font-size: percentage(14/16);
+	a, span {
+		flex: 1 0 auto;
+	}
+	span {
+		text-align: right;
+	}
+	a {
+		color: white;
+		&:before {
+			content: '';
+			display: inline-block;
+			width:  12px;
+			height: 12px;
+			border: 3px white solid;
+			border-radius: 50%;
+			margin-right: .25em;
+			vertical-align: -4px;
+		}
+	}
+	a.active {
+		&:before {
+			content: '';
+			display: inline-block;
+			width:  18px;
+			height: 18px;
+			border: none;
+			background-image: url('../img/icon-refinement-active.svg');
+		}
+	}
+}
+
+
+.listings {
+	list-style: none;
+	margin: 0;
+	padding: 0 10px;
+	.listing {
+		line-height: 1.3;
+		margin: .5em;
+		border-color: $dark-gray;
+		transition: all .25s ease-in;
+		position: relative;
+		&.active{
+			border: 1px $lite-gray solid;
+			border-left: none;
+			border-right: none;
+			padding: .5em 0;
+		}
+	}
+	.name {
+		color: $primary;
+		font-weight: bold;
+		font-size: percentage(17/16);
+		//margin-top: .5em
+	}
+	.info {
+		font-size: percentage(14/16);
+	}
+	.distance {
+		&:before {
+			content: ' • ';
+		}
+	}
+	.phone {
+		display: none;
+	}
+	.more {
+		display: inline-block;
+		visibility: hidden;
+		width: 88px;
+		height: 38px;
+		background-image: url('../img/bg-more.svg');
+		background-repeat: no-repeat;
+		color: white;
+		font-size: percentage(14/16);
+		padding: 7px 19px;
+		position: absolute;
+		top: 10px;
+		right: 0;
+		//left: 150%;
+		z-index: 5;
+		//display: none;
+		opacity: 0;
+		transition: all .25s ease-in;
+	}
+	.active .more {
+		opacity: 1;
+		visibility: visible;
+		//width: 88px;
+	}
+}
+
+
+// DETAILS PAGE ================================================================
+.details.header{
+	font-weight: bold;
+}
+
+#map.details{
+	background-image: url('../img/large-map-zoom.jpg');
+	background-position: 50% 50%;
+}
+
+.details .pad {
+	padding: 0 10px;
+	line-height: 1.4;
+	min-height: 48vh;
+}
+
+.details .dark {
+	display: block;
+	color: $dark-gray;
+	margin: 1em 0;
+}
+
+.details .icon {
+	background-repeat: no-repeat;
+	background-position: center right;
+	min-height: 24px;
+	padding-right: 32px;
+}
+
+.icon.directions {
+	background-image: url('../img/icon-directions.svg');
+}
+.icon.phone {
+	background-image: url('../img/icon-phone.svg');
+}
+.icon.website {
+	background-image: url('../img/icon-website.svg');
+}
+.icon.foursquare {
+	background-image: url('../img/icon-foursquare.svg');
+}
+.icon.instagram {
+	background-image: url('../img/icon-instagram.svg');
+}
+.icon.facebook {
+	background-image: url('../img/icon-facebook.svg');
+}
+.icon.twitter {
+	background-image: url('../img/icon-twitter.svg');
+}
+
+
+#back_button {
+	position: fixed;
+	bottom: 4px;
+	left: 10px;
+	z-index: 5;
+	
+	display: inline-block;
+	width: 88px;
+	height: 38px;
+	background-image: url('../img/bg-back.svg');
+	background-repeat: no-repeat;
+	color: white;
+	font-size: percentage(14/16);
+	padding: 7px 0 0 35px;
+}
+
+
+
+// footer ======================================================================
+
+.logo.footer{
+	background-color: lighten($dark-gray, 5%);
+	padding: 1em 0 4em;
+	margin-top: 1em;
+}
+
