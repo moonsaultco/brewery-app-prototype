@@ -186,14 +186,18 @@ button {
 }
 .actions {
 	@extend .base-padding;
+	padding-bottom: .7em;
 	.button {
 		display: block;
 		width: 70%;
 		max-width: 20em;
-		margin: 1em auto;
+		margin: 1em auto
 	}
 }
 
+.notice {
+	margin: 0 10px;
+}
 
 // RESULTS & DETAILS PAGE ======================================================
 
@@ -525,6 +529,12 @@ button {
 		border: none;
 		box-shadow: none;
 		width: 500px;
+		margin: 0 auto;
+	}
+	
+	.notice {
+		width: 500px;
+		padding: 1em;
 		margin: 0 auto;
 	}
 	
