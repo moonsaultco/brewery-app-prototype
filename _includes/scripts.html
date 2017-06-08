@@ -21,6 +21,12 @@
 		  e.preventDefault();
 		});
 		
+		// click button on results details desktop
+		$( '.search-wrap button' ).click(function(e) {
+		  window.location.href = 'results.html';
+		  e.preventDefault();
+		});
+		
 		// click refinement
 		$( '#refinement a' ).click(function(e) {
 		  $('#refinement a').toggleClass('active');
@@ -52,13 +58,9 @@
 			var thisIndex = $( "li" ).index( $(this ));
 			var pinClass = '.pin' + thisIndex;
 			$(pinClass).addClass('active');
-			
-			
-			console.log(thisIndex);
-			console.log(pinClass);
+
 		});
 		
-	
 	});
 	
 </script>

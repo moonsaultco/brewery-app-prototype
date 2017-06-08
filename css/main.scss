@@ -93,6 +93,20 @@ button {
 }
 
 
+.search-wrap, #search_modal {
+	input, button {
+		height: 31px;
+	}
+	button {
+		margin-left: -5px;
+		vertical-align: top;
+		svg {
+			position: relative;
+			top: 1px;
+		}
+	}
+}
+
 #search_modal {
 	position: absolute;
 	top: 20px;
@@ -109,9 +123,7 @@ button {
 		font-weight: bold;
 		margin-bottom: .5em;
 	}
-	input, button {
-		height: 31px;
-	}
+
 	input {
 		border: 1px $dark-gray solid;
 		width: 83%;
@@ -119,14 +131,7 @@ button {
 		padding: 0 .5em;
 		-webkit-appearance: none;
 	}
-	button {
-		margin-left: -5px;
-		vertical-align: top;
-		svg {
-			position: relative;
-			top: 1px;
-		}
-	}
+
 	#close_modal {
 		font-size: 200%;
 		color: $dark-gray;
@@ -487,7 +492,6 @@ button {
 }
 
 
-
 // footer ======================================================================
 
 .logo.footer{
@@ -496,3 +500,98 @@ button {
 	margin-top: 1em;
 }
 
+// footer ======================================================================
+
+.hidden-mobile {
+	display: none;
+}
+
+
+
+
+// screens wider than 769px, ie not mobile =====================================
+@media only screen and (min-width : 769px) {
+	
+	.mobile-only {
+		display: none;
+	}
+	
+	.hidden-mobile {
+		display: block;
+	}
+	
+	.actions #search_modal {
+		position: static;
+		border: none;
+		box-shadow: none;
+		width: 500px;
+		margin: 0 auto;
+	}
+	
+	#map {
+		position: fixed;
+		height: 100vh;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 300px;
+	}
+	
+	.search-wrap {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 300px;
+		height: 61px;
+		padding: 10px;
+		padding-top: 20px;
+		background-color: $dark-gray;
+		input {
+			width: 80%;
+		}
+		button {
+			background-color: $primary;
+		}
+	}
+		
+	#refinement, .details.header {
+		position: fixed;
+		top: 55px;
+		left: 0;
+		width: 300px;
+		height: 40px;
+	}
+	
+	.main.scroll {
+		position: fixed;
+		top:95px;
+		left: 0;
+		bottom: 0;
+		width: 300px;
+	}
+	
+	.listings, .details .pad {
+		min-height: 90vh;
+	}
+
+	.listings .more {
+		top: 20px;
+	}
+
+	.listings .phone {
+		font-size: percentage(14/16);
+		font-weight: bold;
+		display: block;
+	}
+	
+	.details .icon {
+		background-position: center left;
+		padding-left: 32px;
+		padding-right: 0;
+	}
+	
+	#show_search {
+		display: none;
+	}
+
+}
